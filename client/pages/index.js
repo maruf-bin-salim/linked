@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <p>Beginning</p>
+      <p>Beginning, checking deployment!</p>
     </div>
   )
 }
