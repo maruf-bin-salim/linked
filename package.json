@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
+    "export": "next export"
   },
   "dependencies": {
     "eslint": "8.28.0",
