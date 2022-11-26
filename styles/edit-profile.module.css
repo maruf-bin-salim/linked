@@ -1,0 +1,68 @@
+.page {
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+.page *{
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: #272727;
+    width: 20vw;
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.signOut
+{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #ef3c3c;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.mainBox {
+    flex-grow: 1;
+    background-color: #373737;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.mainBox::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.mainBox {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+@media (max-width: 768px) {
+    .page
+    {
+        flex-direction: column;
+    }
+    .sidebar
+    {
+        width: 100%;
+        flex-direction: row;
+        padding: 20px;
+
+    }
+}

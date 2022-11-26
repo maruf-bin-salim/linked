@@ -1,5 +1,7 @@
 import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import Link from 'next/link';
+
 
 const Home = () => {
   const session = useSession();
@@ -18,6 +20,7 @@ const Home = () => {
   return (
     <div>
       {JSON.stringify(session)};
+      <Link href='./edit-profile'>edit profile</Link>
       <button onClick={() => supabase.auth.signOut()}>
         Sign Out
       </button>
