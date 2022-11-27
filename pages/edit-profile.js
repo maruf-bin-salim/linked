@@ -27,7 +27,26 @@ export default function EditProfile() {
                 <button className={styles.signOut} onClick={() => { supabase.auth.signOut(); router.push('/') }}>{"Log Out"}</button>
             </div>
             <div className={styles.mainBox}>
-                <p>asd</p>
+
+
+                <div className={styles.mainBoxTop}>
+                    <div className={styles.mainBoxTopLeft}>
+                        <h1 className={styles.mainBoxTitle}>My profile</h1>
+                        <div className={styles.saveChanges}>
+                            <button>
+                            </button>
+                            <p>{"Save Changes"}</p>
+                        </div>
+                    </div>
+
+                    <div className={styles.mainBoxTopRight}>
+                        <img src='/default-profile-picture.jpg' alt='profile-image'></img>
+                        <button>
+                        </button>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     )
