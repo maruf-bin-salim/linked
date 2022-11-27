@@ -62,11 +62,25 @@ export default function EditProfile() {
                                 onChange={uploadAvatar}
                             />
                         </label>
-
-
-
                     </div>
                 </div>
+
+                <div className={styles.inputBox}>
+                    <h2>{"username"}</h2>
+                    <input type="text"></input>
+                </div>
+
+                <div className={styles.inputBox}>
+                    <h2>{"bio"}</h2>
+                    <textarea></textarea>
+                </div>
+
+                <div className={styles.inputBox}>
+                    <h2>{"contact Information"}<span>{" i.e: phone-number/email/website-link"}</span> </h2>
+                    <input type="text"></input>
+                </div>
+
+
 
 
             </div>

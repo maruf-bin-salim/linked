@@ -100,7 +100,9 @@
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
+    border: 1px solid black;
 }
+
 
 .mainBoxTopRight input[type="file"]
 {
@@ -159,6 +161,27 @@
     cursor: pointer;
 }
 
+.inputBox 
+{
+    color: #dbdbdb;
+}
+
+.inputBox input
+{
+    border: none;
+    outline: none;
+}
+
+.inputBox textarea 
+{
+    border: none;
+    outline: none;
+}
+
+.inputBox span 
+{
+    font-size: 15px;
+}
 
 @media (max-width: 768px) {
     .page {
