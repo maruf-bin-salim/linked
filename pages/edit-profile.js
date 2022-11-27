@@ -2,16 +2,25 @@ import styles from '../styles/edit-profile.module.css'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/router'
 import AuthError from '../components/authentication-error';
+import useUser from '../hooks/useUser'
 // import Head from 'next/head'
 // import Link from 'next/link'
 
 export default function EditProfile() {
 
-    const session = useSession();
-    const supabase = useSupabaseClient();
     const router = useRouter();
 
-    if (!session) {
+    const { user, isLoading } = useUser();
+
+    if(isLoading)
+    {
+        return (
+            <div>isLoading</div>
+        )
+    }
+
+
+    if (!user) {
         return (
             <AuthError />
         )
