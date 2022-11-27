@@ -14,18 +14,6 @@
     padding: 0;
     color: white;
 }
-.page > h2{
+.page > h1{
     font-weight: 100;
-}
-.page span{
-    font-size: 40px;
-}
-.page a 
-{
-    text-decoration: none;
-    cursor: pointer;
-    background-color: #202020;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
 }
