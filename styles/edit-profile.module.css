@@ -20,6 +20,31 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
+.goBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+.goBack button 
+{
+    height: 30px;
+    width: 30px;
+    background-color: #dbdbdb;
+    background-image: url('../public/go-back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.goBack p {
+    color: #dbdbdb;
+}
 
 .signOut
 {

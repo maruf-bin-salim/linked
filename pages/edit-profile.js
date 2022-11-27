@@ -1,8 +1,9 @@
-import Link from 'next/link'
 import styles from '../styles/edit-profile.module.css'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Router, { useRouter } from 'next/router'
-import Head from 'next/head'
+import { useRouter } from 'next/router'
+import AuthError from '../components/authentication-error';
+// import Head from 'next/head'
+// import Link from 'next/link'
 
 export default function EditProfile() {
 
@@ -12,18 +13,16 @@ export default function EditProfile() {
 
     if (!session) {
         return (
-            <div>
-                {"You aren't logged in."}
-            </div>
+            <AuthError />
         )
     }
 
     return (
         <div className={styles.page}>
-
             <div className={styles.sidebar}>
-                <div>
-                    <p>Go Back To Dashboard</p>
+                <div className={styles.goBack}>
+                    <button onClick={() => { router.push('/'); }}></button>
+                    <p>{"Go Back To Dashboard"}</p>
                 </div>
                 <button className={styles.signOut} onClick={() => { supabase.auth.signOut(); router.push('/') }}>{"Log Out"}</button>
             </div>
