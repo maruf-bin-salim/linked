@@ -1,5 +1,5 @@
 import styles from '../styles/edit-profile.module.css'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/router'
 import AuthError from '../components/authentication-error';
 import useUser from '../hooks/useUser'
@@ -10,13 +10,23 @@ import Loading from '../components/loading';
 export default function EditProfile() {
 
     const router = useRouter();
-    const { user, isLoading } = useUser();
+    const {
 
-    if (!user)
-        return (<AuthError />);
+        isUser,
+        isLoading,
+        uploadAvatar,
+        avatarUrl
+
+    } = useUser();
+    const supabase = useSupabaseClient();
 
     if (isLoading)
         return (<Loading />);
+
+    if (!isUser)
+        return (<AuthError />);
+
+
 
 
     return (
@@ -42,9 +52,19 @@ export default function EditProfile() {
                     </div>
 
                     <div className={styles.mainBoxTopRight}>
-                        <img src='/default-profile-picture.jpg' alt='profile-image'></img>
-                        <button>
-                        </button>
+                        <img src={avatarUrl} alt='profile-image'></img>
+
+                        <label className={styles.customFileInput}>
+                            <input
+                                type="file"
+                                id="single"
+                                accept="image/*"
+                                onChange={uploadAvatar}
+                            />
+                        </label>
+
+
+
                     </div>
                 </div>
 

@@ -102,23 +102,31 @@
     border-radius: 50%;
 }
 
-.mainBoxTopRight button 
+.mainBoxTopRight input[type="file"]
 {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.customFileInput {
     position: absolute;
     bottom: 10%;
     right: 10%;
     width: 20%;
     aspect-ratio: 1;
+    background-color: #838383;
     border-radius: 50%;
     background-image: url('../public/edit-image.png');
-    background-color: #838383;
-    background-position: center center;
-    background-size: 120%;
+    background-size: cover;
     background-repeat: no-repeat;
-    border: 1px solid black;
+    border: none;
     cursor: pointer;
 }
-
 
 
 .mainBoxTitle {
