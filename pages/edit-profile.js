@@ -14,8 +14,20 @@ export default function EditProfile() {
 
         isUser,
         isLoading,
+
         uploadAvatar,
-        avatarUrl
+        avatarUrl,
+
+        username,
+        setUsername,
+
+        bio,
+        setBio,
+
+        contactInformation,
+        setContactInformation,
+
+        updateProfile,
 
     } = useUser();
     const supabase = useSupabaseClient();
@@ -45,7 +57,7 @@ export default function EditProfile() {
                     <div className={styles.mainBoxTopLeft}>
                         <h1 className={styles.mainBoxTitle}>My profile</h1>
                         <div className={styles.saveChanges}>
-                            <button>
+                            <button onClick={updateProfile}>
                             </button>
                             <p>{"Save Changes"}</p>
                         </div>
@@ -66,22 +78,19 @@ export default function EditProfile() {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <h2>{"username"}</h2>
-                    <input type="text"></input>
+                    <h2>{"Username"}</h2>
+                    <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
                 </div>
 
                 <div className={styles.inputBox}>
-                    <h2>{"bio"}</h2>
-                    <textarea></textarea>
+                    <h2>{"Bio"}</h2>
+                    <textarea rows="8" value={bio} onChange={(event) => { setBio(event.target.value) }} ></textarea>
                 </div>
 
                 <div className={styles.inputBox}>
-                    <h2>{"contact Information"}<span>{" i.e: phone-number/email/website-link"}</span> </h2>
-                    <input type="text"></input>
+                    <h2>{"Contact Information"}<span>{" i.e: phone-number/email/website-link"}</span> </h2>
+                    <input type="text" value={contactInformation} onChange={(event) => { setContactInformation(event.target.value) }}></input>
                 </div>
-
-
-
 
             </div>
         </div>

@@ -9,6 +9,9 @@ export default function useUser(passedID) {
     const supabase = useSupabaseClient();
 
     let [avatarUrl, setAvatarUrl] = useState('/default-profile-picture.jpg');
+    let [username, setUsername] = useState('');
+    let [bio, setBio] = useState('');
+    let [contactInformation, setContactInformation] = useState('');
 
     async function getProfile(userID) {
         setLoading(true)
@@ -21,8 +24,17 @@ export default function useUser(passedID) {
         if (data) {
             setIsUser(true);
             if (data.avatar_url) setAvatarUrl(data.avatar_url);
+            if (data.username) setUsername(data.username);
+            if (data.bio) setBio(data.bio);
+            if(data.contactInformation) setContactInformation(data.contactInformation);
+
         }
         setLoading(false);
+    }
+
+    async function updateProfile()
+    {
+        console.log(username, bio, contactInformation);
     }
 
 
@@ -73,8 +85,20 @@ export default function useUser(passedID) {
     return {
         isLoading,
         isUser,
-        
+
         uploadAvatar,
-        avatarUrl
+        avatarUrl,
+
+        username,
+        setUsername,
+
+        bio,
+        setBio,
+
+        contactInformation,
+        setContactInformation,
+
+        updateProfile,
+
     };
 }

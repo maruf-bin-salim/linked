@@ -92,8 +92,7 @@
     position: relative;
 }
 
-.mainBoxTopRight img 
-{
+.mainBoxTopRight img {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,8 +103,7 @@
 }
 
 
-.mainBoxTopRight input[type="file"]
-{
+.mainBoxTopRight input[type="file"] {
     display: none;
     position: absolute;
     width: 100%;
@@ -161,26 +159,43 @@
     cursor: pointer;
 }
 
-.inputBox 
-{
+.inputBox {
     color: #dbdbdb;
+    margin-bottom: 20px;
 }
 
-.inputBox input
-{
+.inputBox h2 {
+    margin-bottom: 10px;
+}
+
+
+.inputBox input {
     border: none;
     outline: none;
+    width: 70%;
+    height: 3em;
+    border-radius: 10px;
+    background-color: #202020;
+    color: #dbdbdb;
+    padding: 10px;
 }
 
-.inputBox textarea 
-{
+.inputBox textarea {
     border: none;
     outline: none;
+    width: 70%;
+    height: 10em;
+    resize: none;
+    border-radius: 10px;
+    background-color: #202020;
+    color: #dbdbdb;
+    padding: 10px;
 }
 
-.inputBox span 
-{
+.inputBox span {
+    margin-left: 30px;
     font-size: 15px;
+    color: #838383;
 }
 
 @media (max-width: 768px) {
@@ -193,6 +208,7 @@
         flex-direction: row;
         padding: 20px;
     }
+
     .mainBoxTopRight {
         width: 20vw;
         height: 20vw;
