@@ -26,15 +26,21 @@ export default function useUser(passedID) {
             if (data.avatar_url) setAvatarUrl(data.avatar_url);
             if (data.username) setUsername(data.username);
             if (data.bio) setBio(data.bio);
-            if(data.contactInformation) setContactInformation(data.contactInformation);
+            if (data.contactInformation) setContactInformation(data.contactInformation);
 
         }
         setLoading(false);
     }
 
-    async function updateProfile()
-    {
-        console.log(username, bio, contactInformation);
+    async function updateProfile() {
+
+        setLoading(true);
+        const { data, error } = await supabase
+            .from('profiles')
+            .update({ username: username, bio: bio, contactInformation: contactInformation })
+            .match({ id: session.user.id });
+
+        setLoading(false);
     }
 
 
