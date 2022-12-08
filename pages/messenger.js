@@ -59,6 +59,11 @@ export default function Messenger() {
                             <h1 className={styles.mainBoxTitle}>{username}</h1>
                     </div>
 
+                    <div className={styles.searchInputContainer}>
+                        <input placeholder="Search for a user . . ."></input>
+                        <button></button>
+                    </div>
+
                 </div>
 
 

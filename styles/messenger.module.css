@@ -100,8 +100,40 @@
 
 .mainBoxTitle {
     color: #ffffff;
-    text-decoration: underline;
     margin-bottom: 10px;
+}
+
+.searchInputContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.searchInputContainer input {
+    text-align: center;
+    background-color: #272727;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    min-height: 5vh;
+    min-width: 80%;
+    color: #dbdbdb;
+    border-radius: 10px;
+}
+
+.searchInputContainer button {
+    height: 20px;
+    width: 20px;
+    background-color: #838383;
+    border-radius: 5px;
+    background-image: url('../public/save-changes.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -114,7 +146,8 @@
         flex-direction: row;
         padding: 20px;
     }
-    .mainBoxTop{
+
+    .mainBoxTop {
         justify-content: space-between;
     }
 }
