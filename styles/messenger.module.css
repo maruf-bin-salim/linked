@@ -119,22 +119,25 @@
     outline: none;
     padding: 10px 30px;
     min-height: 5vh;
-    min-width: 80%;
     color: #dbdbdb;
     border-radius: 10px;
+    flex-grow: 1;
 }
 
 .searchInputContainer button {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
     background-color: #838383;
     border-radius: 5px;
-    background-image: url('../public/save-changes.png');
+    background-image: url('../public/search-icon.png');
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
+    filter: brightness(.8);
 }
+
+
 
 @media (max-width: 768px) {
     .page {
