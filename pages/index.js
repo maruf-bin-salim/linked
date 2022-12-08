@@ -21,6 +21,7 @@ const Home = () => {
     <div>
       {JSON.stringify(session)};
       <Link href='./edit-profile'>edit profile</Link>
+      <Link href='./messenger'>Messenger</Link>
       <button onClick={() => supabase.auth.signOut()}>
         Sign Out
       </button>

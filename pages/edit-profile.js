@@ -10,6 +10,8 @@ import Loading from '../components/loading';
 export default function EditProfile() {
 
     const router = useRouter();
+    const supabase = useSupabaseClient();
+    
     const {
 
         isUser,
@@ -30,7 +32,6 @@ export default function EditProfile() {
         updateProfile,
 
     } = useUser();
-    const supabase = useSupabaseClient();
 
     if (isLoading)
         return (<Loading />);
