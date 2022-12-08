@@ -1,8 +1,9 @@
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import Link from "next/link"
 import { useRouter } from "next/router";
+import { useState } from "react";
 import AuthError from "../components/authentication-error";
 import Loading from "../components/loading";
+import SearchResults from "../components/searchResults";
 import useUser from "../hooks/useUser"
 import styles from '../styles/messenger.module.css'
 
@@ -10,26 +11,22 @@ export default function Messenger() {
 
     const supabase = useSupabaseClient();
     const router = useRouter();
-    const {
 
+    const {
         isUser,
         isLoading,
-
-        uploadAvatar,
         avatarUrl,
-
         username,
-        setUsername,
+        users } = useUser();
 
-        bio,
-        setBio,
 
-        contactInformation,
-        setContactInformation,
+    const [searchText, setSearchText] = useState('');
+    const [searchedUsers, setSearchedUsers] = useState(users);
 
-        updateProfile,
 
-    } = useUser();
+    function isSearching() {
+        return searchText && (searchText != '');
+    }
 
 
     if (isLoading)
@@ -37,6 +34,11 @@ export default function Messenger() {
 
     if (!isUser)
         return (<AuthError />);
+
+
+    function clearSearchText() {
+        setSearchText('');
+    }
 
 
 
@@ -55,14 +57,30 @@ export default function Messenger() {
                 <div className={styles.mainBox}>
 
                     <div className={styles.mainBoxTop}>
-                            <img src={avatarUrl} alt='profile-image'></img>
-                            <h1 className={styles.mainBoxTitle}>{username}</h1>
+                        <img src={avatarUrl} alt='profile-image'></img>
+                        <h1 className={styles.mainBoxTitle}>{username}</h1>
                     </div>
 
                     <div className={styles.searchInputContainer}>
-                        <input placeholder="Search for a user . . ."></input>
-                        <button></button>
+                        <input
+                            value={searchText}
+                            onChange={(e) => { setSearchText(e.target.value) }}
+                            spellCheck="false"
+                            placeholder="Search for a user . . .">
+                        </input>
+                        <button onClick={clearSearchText}></button>
                     </div>
+
+                    {
+                        isSearching() &&
+                        <SearchResults searchText={searchText} allUsers={users}></SearchResults>
+                    }
+
+                    {
+                        !isSearching() &&
+                        <div> is not Searching </div>
+                    }
+
 
                 </div>
 

@@ -1,0 +1,80 @@
+.searchResultsComponent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    background-color: #272727;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-all;
+    flex: 1;
+    border-radius: 20px;
+
+}
+.searchResultsComponent p 
+{
+    color: #dbdbdd;
+    margin: 20px;
+    margin-bottom: 10px;
+    width: calc(100%-40px);
+}
+
+.searchResult {
+    background-color: #202020;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.searchResult:hover 
+{
+    background-color: #191919;
+}
+.userInformation 
+{
+    display: flex;
+    align-items: center;
+}
+
+.userInformation p 
+{
+    margin-left: 10px;
+}
+
+.userInformation img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.userInformation img:hover{
+    scale: 1.2;
+}
+.messengerButtonContainer {
+    display: flex;
+    align-items: center;
+}
+
+.messengerButtonContainer button {
+    height: 30px;
+    width: 30px;
+    background-color: #838383;
+    border-radius: 5px;
+    background-image: url('../public/messenger-icon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.messengerButtonContainer button:hover{
+    scale: 1.2;
+}

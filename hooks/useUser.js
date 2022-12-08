@@ -12,6 +12,7 @@ export default function useUser(passedID) {
     let [username, setUsername] = useState('');
     let [bio, setBio] = useState('');
     let [contactInformation, setContactInformation] = useState('');
+    let [users, setUsers] = useState([]);
 
     async function getProfile(userID) {
         setLoading(true)
@@ -28,6 +29,20 @@ export default function useUser(passedID) {
             if (data.bio) setBio(data.bio);
             if (data.contactInformation) setContactInformation(data.contactInformation);
 
+        }
+        setLoading(false);
+    }
+
+    async function getAllProfiles()
+    {
+        setLoading(true)
+        let { data, error, status } = await supabase
+            .from('profiles')
+            .select('*')
+
+        console.log(data);
+        if (data) {
+            setUsers(data);
         }
         setLoading(false);
     }
@@ -84,7 +99,9 @@ export default function useUser(passedID) {
         if (!session) return;
         let userID = passedID ? passedID : session.user.id;
         getProfile(userID);
+        getAllProfiles();
     }, [session])
+
 
 
 
@@ -105,6 +122,7 @@ export default function useUser(passedID) {
         setContactInformation,
 
         updateProfile,
+        users
 
     };
 }
