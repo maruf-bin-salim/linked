@@ -41,7 +41,6 @@ export default function useUser(passedID) {
             .from('profiles')
             .select('*')
 
-        console.log(data);
         if (data) {
             setUsers(data);
         }
