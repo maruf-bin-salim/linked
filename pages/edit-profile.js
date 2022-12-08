@@ -11,7 +11,7 @@ export default function EditProfile() {
 
     const router = useRouter();
     const supabase = useSupabaseClient();
-    
+
     const {
 
         isUser,
@@ -80,17 +80,17 @@ export default function EditProfile() {
 
                 <div className={styles.inputBox}>
                     <h2>{"Username"}</h2>
-                    <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+                    <input spellCheck="false" type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
                 </div>
 
                 <div className={styles.inputBox}>
                     <h2>{"Bio"}</h2>
-                    <textarea rows="8" value={bio} onChange={(event) => { setBio(event.target.value) }} ></textarea>
+                    <textarea spellCheck="false" rows="8" value={bio} onChange={(event) => { setBio(event.target.value) }} ></textarea>
                 </div>
 
                 <div className={styles.inputBox}>
                     <h2>{"Contact Information"}<span>{" i.e: phone-number/email/website-link"}</span> </h2>
-                    <input type="text" value={contactInformation} onChange={(event) => { setContactInformation(event.target.value) }}></input>
+                    <input spellCheck="false" type="text" value={contactInformation} onChange={(event) => { setContactInformation(event.target.value) }}></input>
                 </div>
 
             </div>

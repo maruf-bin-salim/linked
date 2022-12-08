@@ -13,6 +13,7 @@ export default function Messenger() {
     const router = useRouter();
 
     const {
+        loggedInUserID,
         isUser,
         isLoading,
         avatarUrl,
@@ -73,7 +74,7 @@ export default function Messenger() {
 
                     {
                         isSearching() &&
-                        <SearchResults searchText={searchText} allUsers={users}></SearchResults>
+                        <SearchResults loggedInUserID={loggedInUserID} searchText={searchText} allUsers={users}></SearchResults>
                     }
 
                     {

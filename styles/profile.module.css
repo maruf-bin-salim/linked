@@ -1,0 +1,242 @@
+.page {
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+
+.page * {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: #272727;
+    width: 20vw;
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.goBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.goBack button {
+    height: 30px;
+    width: 30px;
+    background-color: #dbdbdb;
+    background-image: url('../public/go-back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.goBack p {
+    color: #dbdbdb;
+}
+
+.signOut {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #ef3c3c;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.mainBox {
+    flex-grow: 1;
+    background-color: #373737;
+    max-height: 100vh;
+    overflow-y: scroll;
+    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.mainBox::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.mainBox {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.mainBoxTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainBoxTopRight {
+    width: 10vw;
+    height: 10vw;
+    position: relative;
+}
+
+.mainBoxTopRight img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+
+.mainBoxTopRight input[type="file"] {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.customFileInput {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 20%;
+    aspect-ratio: 1;
+    background-color: #838383;
+    border-radius: 50%;
+    background-image: url('../public/edit-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+
+.mainBoxTitle {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.saveChanges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+
+.saveChanges p {
+    color: #dbdbdb;
+}
+
+.saveChanges button {
+    height: 20px;
+    width: 20px;
+    background-color: #838383;
+    border-radius: 5px;
+    background-image: url('../public/save-changes.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.inputBox {
+    color: #dbdbdb;
+    margin-bottom: 20px;
+}
+
+.inputBox h2 {
+    margin-bottom: 10px;
+}
+
+
+.inputBox input {
+    border: none;
+    outline: none;
+    width: 70%;
+    height: 3em;
+    border-radius: 10px;
+    background-color: #202020;
+    color: #dbdbdb;
+    padding: 10px;
+}
+
+.inputBox textarea {
+    border: none;
+    outline: none;
+    width: 70%;
+    height: 10em;
+    resize: none;
+    border-radius: 10px;
+    background-color: #202020;
+    color: #dbdbdb;
+    padding: 10px;
+}
+
+.inputBox input::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.inputBox input {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.inputBox textarea::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.inputBox textarea {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.inputBox span {
+    margin-left: 30px;
+    font-size: 15px;
+    color: #838383;
+}
+
+@media (max-width: 768px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 20px;
+    }
+
+    .mainBoxTopRight {
+        width: 20vw;
+        height: 20vw;
+    }
+
+
+}

@@ -10,6 +10,7 @@ export default function useUser(passedID) {
 
     let [avatarUrl, setAvatarUrl] = useState('/default-profile-picture.jpg');
     let [username, setUsername] = useState('');
+    let [loggedInUserID, setLoggedInUserID] = useState(null);
     let [bio, setBio] = useState('');
     let [contactInformation, setContactInformation] = useState('');
     let [users, setUsers] = useState([]);
@@ -97,6 +98,7 @@ export default function useUser(passedID) {
     useEffect(() => {
         setLoading(false);
         if (!session) return;
+        if(session.user.id) setLoggedInUserID(session.user.id)
         let userID = passedID ? passedID : session.user.id;
         getProfile(userID);
         getAllProfiles();
@@ -108,6 +110,7 @@ export default function useUser(passedID) {
     return {
         isLoading,
         isUser,
+        loggedInUserID,
 
         uploadAvatar,
         avatarUrl,

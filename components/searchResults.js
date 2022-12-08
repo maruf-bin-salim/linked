@@ -39,7 +39,8 @@ function SearchResult({ user }) {
 
 export default function SearchResults({
     searchText,
-    allUsers: users
+    allUsers: users,
+    loggedInUserID
 }) {
 
     return (
@@ -48,7 +49,7 @@ export default function SearchResults({
             <div className={styles.searchResults}>
                 {
                     users.filter(
-                        function (user) { return user.username.toLowerCase().includes(searchText.toLowerCase()); }
+                        function (user) { return (user.id !== loggedInUserID) && user.username.toLowerCase().includes(searchText.toLowerCase()); }
                     ).map((user) => { return (<SearchResult key={user.id} user={user} />) })
                 }
             </div>
