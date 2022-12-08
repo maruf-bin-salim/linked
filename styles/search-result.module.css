@@ -19,6 +19,14 @@
     width: calc(100%-40px);
 }
 
+.searchResults 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
 .searchResult {
     background-color: #202020;
     margin-top: 10px;
@@ -26,6 +34,7 @@
     justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
+    min-height: max-content;
 }
 
 .searchResult:hover 

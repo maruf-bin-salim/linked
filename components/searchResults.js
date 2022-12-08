@@ -25,7 +25,7 @@ export default function SearchResults({
     return (
         <div className={styles.searchResultsComponent}>
             <p>{`Search For "${searchText}"`}</p>
-            <div>
+            <div className={styles.searchResults}>
                 {
                     users.filter(
                         function (user) { return user.username.toLowerCase().includes(searchText.toLowerCase()); }
