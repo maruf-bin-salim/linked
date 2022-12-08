@@ -11,21 +11,35 @@
     border-radius: 20px;
 
 }
-.searchResultsComponent p 
-{
+
+.searchResultsComponent p {
     color: #dbdbdd;
     margin: 20px;
     margin-bottom: 10px;
     width: calc(100%-40px);
 }
 
-.searchResults 
-{
+.searchResults {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 10px;
     padding: 20px;
+    overflow-y: scroll;
 }
+
+.searchResults::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.searchResults {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
 
 .searchResult {
     background-color: #202020;
@@ -37,23 +51,20 @@
     min-height: max-content;
 }
 
-.searchResult:hover 
-{
+.searchResult:hover {
     background-color: #191919;
 }
-.userInformation 
-{
+
+.userInformation {
     display: flex;
     align-items: center;
 }
 
-.userInformation p 
-{
+.userInformation p {
     margin-left: 10px;
 }
 
-.userInformation img
-{
+.userInformation img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -62,9 +73,10 @@
     cursor: pointer;
 }
 
-.userInformation img:hover{
+.userInformation img:hover {
     scale: 1.2;
 }
+
 .messengerButtonContainer {
     display: flex;
     align-items: center;
@@ -84,6 +96,6 @@
     margin-right: 10px;
 }
 
-.messengerButtonContainer button:hover{
+.messengerButtonContainer button:hover {
     scale: 1.2;
 }
