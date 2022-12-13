@@ -40,6 +40,7 @@ export default function useMessages(threadID) {
 
     async function sendMessage(id, text, senderID)
     {
+        let timestamp = Date.now();
     }
 
 

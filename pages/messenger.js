@@ -81,16 +81,7 @@ export default function Messenger() {
                         !isSearching() &&
                         <div> is not Searching </div>
                     }
-
-
                 </div>
-
-
-
-
-
-
-
             </div>
         </>
     )
