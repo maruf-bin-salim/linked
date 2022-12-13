@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import generateRandomID from "../utils/generateRandomID";
 
 
 export default function useMessages(threadID) {
     const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const supabase = useSupabaseClient();
 
 
     async function getMessages(threadID) {
+        if(!threadID) return;
+        setIsLoading(true);
         let { data, error, status } = await supabase
             .from('messages')
             .select('*')
             .eq('threadID', threadID.trim());
         if (data) setMessages(data);
+        setIsLoading(false);
     }
 
     useEffect(() => {
-        if(threadID) getMessages(threadID);
+        if (threadID) getMessages(threadID);
     }, [threadID]);
 
 
@@ -26,9 +31,7 @@ export default function useMessages(threadID) {
         const subscription = supabase
             .channel('public:messages')
             .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
-                let currentMessage = payload.new;
-                let currentMessages = [...messages, currentMessage];
-                setMessages(currentMessages);
+                getMessages(threadID);
             })
             .subscribe();
 
@@ -38,13 +41,22 @@ export default function useMessages(threadID) {
 
     }, [])
 
-    async function sendMessage(id, text, senderID)
-    {
+    async function sendMessage(text, senderID) {
+        let id = generateRandomID('message');
         let timestamp = Date.now();
+
+        const { error } = await supabase
+            .from('messages')
+            .insert({ id: id, text: text, senderID: senderID, threadID: threadID, timestamp: timestamp });
+
+        console.log(error);
     }
 
 
     return {
-        messages
+        messages,
+        sendMessage,
+        isLoading,
+        setIsLoading
     }
 }
