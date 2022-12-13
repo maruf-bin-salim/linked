@@ -97,7 +97,8 @@ export default function useUser(passedID) {
     useEffect(() => {
         setLoading(false);
         if (!session) return;
-        if(session.user.id) setLoggedInUserID(session.user.id)
+        if(session.user.id) setLoggedInUserID(session.user.id);
+        else setLoggedInUserID(null);
         let userID = passedID ? passedID : session.user.id;
         getProfile(userID);
         getAllProfiles();

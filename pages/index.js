@@ -1,11 +1,37 @@
 import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Link from 'next/link';
+import Loading from '../components/loading';
+import useUser from '../hooks/useUser';
+import { useRouter } from 'next/router';
+import styles from '../styles/dashboard.module.css'
 
 
-const Home = () => {
+function Header() {
+  return (
+    <div>
+    </div>
+  )
+
+}
+
+
+export default function Home() {
   const session = useSession();
   const supabase = useSupabaseClient();
+  const router = useRouter();
+
+
+  const {
+    isLoading,
+    avatarUrl,
+    username,
+    loggedInUserID,
+  } = useUser();
+
+  if (isLoading)
+    return (<Loading />);
+
 
   if (!session) return (
     <div className="auth-container">
@@ -18,15 +44,12 @@ const Home = () => {
   )
 
   return (
-    <div>
-      {JSON.stringify(session)};
+    <div className={styles.page}>
       <Link href='./edit-profile'>edit profile</Link>
       <Link href='./messenger'>Messenger</Link>
-      <button onClick={() => supabase.auth.signOut()}>
+      <button onClick={() => { supabase.auth.signOut(); router.push('/'); }}>
         Sign Out
       </button>
     </div>
   )
 }
-
-export default Home

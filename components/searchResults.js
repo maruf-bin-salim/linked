@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router';
 import styles from '../styles/search-result.module.css'
+import generateThread from '../utils/generateThread';
 
 
 
 
-function SearchResult({ user }) {
+function SearchResult({ user, loggedInUserID }) {
 
     const router = useRouter();
 
@@ -13,7 +14,7 @@ function SearchResult({ user }) {
     }
 
     async function goToThread() {
-        router.push(`/messenger/${user.id}`)
+        router.push(`/messenger/${generateThread(user.id, loggedInUserID)}`)
     }
 
 
@@ -50,7 +51,7 @@ export default function SearchResults({
                 {
                     users.filter(
                         function (user) { return (user.id !== loggedInUserID) && user.username.toLowerCase().includes(searchText.toLowerCase()); }
-                    ).map((user) => { return (<SearchResult key={user.id} user={user} />) })
+                    ).map((user) => { return (<SearchResult key={user.id} user={user} loggedInUserID={loggedInUserID} />) })
                 }
             </div>
         </div>
