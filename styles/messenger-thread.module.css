@@ -178,7 +178,9 @@
 
 @media (max-width: 768px) {
     .page {
+        width: 100%;
         flex-direction: column;
+        background-color: red;
     }
 
     .sidebar {
