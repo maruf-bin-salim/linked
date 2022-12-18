@@ -142,6 +142,7 @@
     align-items: center;
     padding: 10px;
     gap: 10px;
+    word-break: break-all;
 }
 .senderInfo img {
     height: 40px;
@@ -201,11 +202,10 @@
     .chatContainer {
         margin: 0;
         width: 100vw;
-        background-color: green;
 
     }
     .message {
-        width: calc(100% - 40px);
+        width: calc(100% - 100px);
     } 
     .messageMain p {
         max-width: 80%;
