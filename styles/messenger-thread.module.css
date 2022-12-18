@@ -213,5 +213,6 @@
     .chatInputContainer{
         margin: 0;
         width: 100vw;
+        background-color: red;
     }
 }
