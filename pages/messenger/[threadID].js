@@ -27,13 +27,13 @@ function Message({ id, text, isSelfSent, timestamp, loggedInUser, threadMember }
                 isSelfSent &&
                 <div className={styles.senderInfo}>
                     <p style={{ marginLeft: "auto" }}>{loggedInUser.username}</p>
-                    <img src={loggedInUser.avatar_url}></img>
+                    <img src={loggedInUser.avatar_url} alt="profile-picture"></img>
                 </div>
             }
             {
                 !isSelfSent &&
                 <div className={styles.senderInfo}>
-                    <img src={threadMember.avatar_url}></img>
+                    <img src={threadMember.avatar_url} alt="profile-picture"></img>
                     <p>{threadMember.username}</p>
                 </div>
             }
