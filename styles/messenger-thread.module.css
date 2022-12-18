@@ -190,16 +190,17 @@
     }
 
     .mainBox {
-        display: none;
         max-width: 100vw;
         width: 100vw;
         max-height: 90vh;
         padding: 0;
+        background-color: green;
     }
     .goBack p {
         display: none;
     }
     .chatContainer {
+        display: none;
         width: 100vw;
     }
     .message {
@@ -210,6 +211,7 @@
     }
 
     .chatInputContainer{
+        display: none;
         width: 100vw;
     }
 }
