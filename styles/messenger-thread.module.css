@@ -4,7 +4,7 @@
     max-height: 100%;
     display: flex;
 }
- 
+
 
 
 .sidebar {
@@ -40,13 +40,11 @@
     cursor: pointer;
 }
 
-.goBackToMessenger
-{
+.goBackToMessenger {
     background-image: url('../public/history-icon.png');
 }
 
-.goBackToHome
-{
+.goBackToHome {
     background-image: url('../public/go-back.png');
 }
 
@@ -77,6 +75,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .chatContainer {
     flex-grow: 1;
     overflow-y: scroll;
@@ -102,6 +101,7 @@
     justify-content: space-between;
     padding: 10px;
 }
+
 .chatInputContainer input {
     border: none;
     outline: none;
@@ -128,8 +128,7 @@
 }
 
 
-.message 
-{
+.message {
     background-color: #2b2b2b;
     border-radius: 20px;
     padding: 10px;
@@ -137,6 +136,7 @@
     width: calc(100% - 100px);
     max-width: 100%;
 }
+
 .senderInfo {
     display: flex;
     align-items: center;
@@ -144,16 +144,19 @@
     gap: 10px;
     word-break: break-all;
 }
+
 .senderInfo img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
+
 .senderInfo p {
     color: #dbdbdb;
     font-size: larger;
 
 }
+
 .messageMain p {
     width: max-content;
     max-width: 70%;
@@ -195,24 +198,57 @@
         max-height: 90vh;
         padding: 0;
     }
+
     .goBack p {
         display: none;
     }
+
     .chatContainer {
         margin: 0;
         width: 100vw;
 
     }
+
     .message {
         width: calc(100% - 50px);
-    } 
+    }
+
     .messageMain p {
         max-width: 80%;
     }
 
-    .chatInputContainer{
-        margin: 0;
+    .chatInputContainer {
+        height: 10vh;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 8fr 1fr;        
+        padding: 10px;
         width: 100vw;
-        background-color: red;
+    }
+
+    .chatInputContainer input {
+        border: none;
+        outline: none;
+        height: 50px;
+        padding: 10px;
+        font-size: x-large;
+        background-color: #272727;
+        border-radius: 10px;
+        color: #dbdbdb;
+        flex-grow: 0;
+        width: 100%;
+
+    }
+
+    .chatInputContainer button {
+        width: 45px;
+        aspect-ratio: 1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+        background-image: url('../public/send-message.png');
+        border-radius: 50%;
     }
 }
