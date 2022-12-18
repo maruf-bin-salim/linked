@@ -211,7 +211,7 @@
     }
 
     .chatInputContainer{
-        display: none;
+        margin: 0;
         width: 100vw;
     }
 }
