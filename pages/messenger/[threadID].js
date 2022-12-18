@@ -5,6 +5,7 @@ import Loading from '../../components/loading';
 import useMessages from '../../hooks/useMessages';
 import useThread from '../../hooks/useThread';
 import styles from '../../styles/messenger-thread.module.css'
+import getProfilePicture from '../../utils/getProfilePicture';
 
 
 function Message({ id, text, isSelfSent, timestamp, loggedInUser, threadMember }) {
@@ -27,13 +28,13 @@ function Message({ id, text, isSelfSent, timestamp, loggedInUser, threadMember }
                 isSelfSent &&
                 <div className={styles.senderInfo}>
                     <p style={{ marginLeft: "auto" }}>{loggedInUser.username}</p>
-                    <img src={loggedInUser.avatar_url} alt="profile-picture"></img>
+                    <img src={getProfilePicture(loggedInUser.avatar_url)} alt="profile-picture"></img>
                 </div>
             }
             {
                 !isSelfSent &&
                 <div className={styles.senderInfo}>
-                    <img src={threadMember.avatar_url} alt="profile-picture"></img>
+                    <img src={getProfilePicture(threadMember.avatar_url)} alt="profile-picture"></img>
                     <p>{threadMember.username}</p>
                 </div>
             }
@@ -63,6 +64,7 @@ export default function MessengerThread() {
 
     async function handleSend() {
         let text = currentText;
+        if(!text || text === '' || text === ' ') return;
         setCurrentText('');
         await sendMessage(text, loggedInUser.id);
     }

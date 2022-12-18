@@ -181,7 +181,6 @@
     .page {
         width: 100%;
         flex-direction: column;
-        background-color: red;
     }
 
     .sidebar {
@@ -205,7 +204,7 @@
 
     }
     .message {
-        width: calc(100% - 100px);
+        width: calc(100% - 50px);
     } 
     .messageMain p {
         max-width: 80%;
