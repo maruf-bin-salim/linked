@@ -194,14 +194,15 @@
         width: 100vw;
         max-height: 90vh;
         padding: 0;
-        background-color: green;
     }
     .goBack p {
         display: none;
     }
     .chatContainer {
-        display: none;
+        margin: 0;
         width: 100vw;
+        background-color: green;
+
     }
     .message {
         width: calc(100% - 40px);
