@@ -7,14 +7,6 @@ import { useRouter } from 'next/router';
 import styles from '../styles/dashboard.module.css'
 
 
-function Header() {
-  return (
-    <div>
-    </div>
-  )
-
-}
-
 
 export default function Home() {
   const session = useSession();

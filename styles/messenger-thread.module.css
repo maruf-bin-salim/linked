@@ -189,6 +189,7 @@
 
     .mainBox {
         max-width: 100vw;
+        width: 100vw;
         max-height: 90vh;
         padding: 0;
     }
@@ -196,12 +197,16 @@
         display: none;
     }
     .chatContainer {
-        width: 100%;
+        width: 100vw;
     }
     .message {
         width: calc(100% - 40px);
     } 
     .messageMain p {
         max-width: 80%;
+    }
+
+    .chatInputContainer{
+        width: 100vw;
     }
 }
