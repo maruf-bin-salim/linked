@@ -38,7 +38,7 @@ export default function useMessages() {
             .channel('public:messages')
             .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
                 console.log('someone added a message in the database');
-                getMessages(threadID);
+                getMessages(payload.new.threadID);
                 // router.reload();
             })
             .subscribe();
