@@ -57,8 +57,9 @@ export default function MessengerThread() {
     const router = useRouter();
     const { threadID } = router.query;
     const { loggedInUser, threadMember, isLoading, isLoggedIn } = useThread(threadID);
-    const { messages, sendMessage } = useMessages(threadID);
+    const { messages, sendMessage } = useMessages();
     const [currentText, setCurrentText] = useState('');
+
 
 
 

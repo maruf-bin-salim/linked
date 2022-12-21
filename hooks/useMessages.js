@@ -4,15 +4,17 @@ import generateRandomID from "../utils/generateRandomID";
 import { useRouter } from "next/router";
 
 
-export default function useMessages(threadID) {
+export default function useMessages() {
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const supabase = useSupabaseClient();
     const router = useRouter();
+    const { threadID } = router.query;
 
 
-    async function getMessages(threadID) {
+    async function getMessages() {
+        console.log('should update', threadID);
         if (!threadID) return;
         setIsLoading(true);
         let { data, error, status } = await supabase
@@ -24,17 +26,19 @@ export default function useMessages(threadID) {
     }
 
     useEffect(() => {
+        console.log('this is the thread', threadID);
         if (threadID) getMessages(threadID);
     }, [threadID]);
 
+ 
 
     useEffect(() => {
 
         const subscription = supabase
             .channel('public:messages')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, async payload => {
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
                 console.log('someone added a message in the database');
-                await getMessages(threadID);
+                getMessages(threadID);
                 // router.reload();
             })
             .subscribe();
@@ -52,6 +56,7 @@ export default function useMessages(threadID) {
         const { error } = await supabase
             .from('messages')
             .insert({ id: id, text: text, senderID: senderID, threadID: threadID, timestamp: timestamp });
+        await getMessages(threadID);
 
         if (error) console.log(error);
     }
