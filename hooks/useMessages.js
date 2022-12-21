@@ -15,14 +15,16 @@ export default function useMessages() {
 
     async function getMessages() {
         console.log('should update', threadID);
-        if (!threadID) return;
-        setIsLoading(true);
+        if (!threadID) {
+            router.reload();
+        }
+        // setIsLoading(true);
         let { data, error, status } = await supabase
             .from('messages')
             .select('*')
             .eq('threadID', threadID.trim());
         if (data) setMessages(data);
-        setIsLoading(false);
+        // setIsLoading(false);
     }
 
     useEffect(() => {
