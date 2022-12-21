@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
 import styles from '../styles/search-result.module.css'
 import generateThread from '../utils/generateThread';
-
-
-
+import getProfilePicture from '../utils/getProfilePicture';
 
 function SearchResult({ user, loggedInUserID }) {
 
@@ -18,12 +16,15 @@ function SearchResult({ user, loggedInUserID }) {
     }
 
 
+
+
+
     return (
         <div className={styles.searchResult}>
             <div className={styles.userInformation}>
                 <img
                     onClick={goToUserProfile}
-                    src={user.avatar_url}
+                    src={getProfilePicture(user.avatar_url)} 
                     alt='profile-picture'
                 >
                 </img>
