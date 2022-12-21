@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import generateRandomID from "../utils/generateRandomID";
+import { useRouter } from "next/router";
 
 
 export default function useMessages(threadID) {
@@ -8,10 +9,11 @@ export default function useMessages(threadID) {
     const [isLoading, setIsLoading] = useState(false);
 
     const supabase = useSupabaseClient();
+    const router = useRouter();
 
 
     async function getMessages(threadID) {
-        if(!threadID) return;
+        if (!threadID) return;
         setIsLoading(true);
         let { data, error, status } = await supabase
             .from('messages')
@@ -30,8 +32,10 @@ export default function useMessages(threadID) {
 
         const subscription = supabase
             .channel('public:messages')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
-                getMessages(threadID);
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, async payload => {
+                console.log('someone added a message in the database');
+                await getMessages(threadID);
+                // router.reload();
             })
             .subscribe();
 
@@ -49,7 +53,7 @@ export default function useMessages(threadID) {
             .from('messages')
             .insert({ id: id, text: text, senderID: senderID, threadID: threadID, timestamp: timestamp });
 
-        console.log(error);
+        if (error) console.log(error);
     }
 
 
