@@ -103,7 +103,7 @@ export default function ThreadHistories({ loggedInUserID, threads, users }) {
 
                 {
                     histories.map((history, index) => {
-                        return (<ThreadHistory history={history} />)
+                        return (<ThreadHistory key={history.id} history={history} />)
                     })
                 }
 
