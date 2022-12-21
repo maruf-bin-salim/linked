@@ -60,8 +60,8 @@ export default function useThread(threadID) {
 
     useEffect(() => {
 
-        if(!session) setIsLoggedIn(false);
-        if(threadID) setThreadInformation();
+        if (!session) setIsLoggedIn(false);
+        if (threadID) setThreadInformation();
     }, [threadID, session])
 
     return {
