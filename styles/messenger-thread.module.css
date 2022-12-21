@@ -184,6 +184,7 @@
     .page {
         width: 100%;
         flex-direction: column;
+        background-color: #373737;
     }
 
     .sidebar {
