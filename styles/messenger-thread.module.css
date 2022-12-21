@@ -256,4 +256,8 @@
         background-image: url('../public/send-message.png');
         border-radius: 50%;
     }
+    .messageMain p {
+        font-size: medium;
+    }
+    
 }
