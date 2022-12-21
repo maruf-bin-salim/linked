@@ -1,5 +1,8 @@
 const PAGE_TYPES = {
     POST: 'POST',
+    TIMELINE: 'TIMELINE',
+    MARKETPLACE: 'MARKETPLACE',
+    SHARE: 'SHARE',
 }
 
 export { PAGE_TYPES };

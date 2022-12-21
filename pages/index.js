@@ -48,7 +48,21 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <TopBar avatarUrl={avatarUrl} username={username} />
-      <div className={styles.main}></div>
+      <div className={styles.main}>
+        {
+          (currentPageType === PAGE_TYPES.POST) && <div> POST </div>
+        }
+        {
+          (currentPageType === PAGE_TYPES.TIMELINE) && <div> TIMELINE </div>
+        }
+
+        {
+          (currentPageType === PAGE_TYPES.MARKETPLACE) && <div> POST </div>
+        }
+        {
+          (currentPageType === PAGE_TYPES.SHARE) && <div> POST </div>
+        }
+      </div>
       <BottomBar />
     </div>
   )
