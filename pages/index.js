@@ -1,17 +1,26 @@
 import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Link from 'next/link';
 import Loading from '../components/loading';
 import useUser from '../hooks/useUser';
 import { useRouter } from 'next/router';
 import styles from '../styles/dashboard.module.css'
+import { useState } from 'react';
+import { PAGE_TYPES } from '../utils/types';
+import TopBar from '../components/TopBar';
+import BottomBar from '../components/BottomBar';
+
+
+
+
 
 
 
 export default function Home() {
   const session = useSession();
   const supabase = useSupabaseClient();
-  const router = useRouter();
+
+
+  const [currentPageType, setCurrentPageType] = useState(PAGE_TYPES.POST);
 
 
   const {
@@ -35,13 +44,12 @@ export default function Home() {
     </div>
   )
 
+
   return (
     <div className={styles.page}>
-      <Link href='./edit-profile'>edit profile</Link>
-      <Link href='./messenger'>Messenger</Link>
-      <button onClick={() => { supabase.auth.signOut(); router.push('/'); }}>
-        Sign Out
-      </button>
+      <TopBar avatarUrl={avatarUrl} username={username} />
+      <div className={styles.main}></div>
+      <BottomBar />
     </div>
   )
 }

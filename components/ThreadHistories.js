@@ -106,8 +106,6 @@ export default function ThreadHistories({ loggedInUserID, threads, users }) {
                         return (<ThreadHistory key={history.id} history={history} />)
                     })
                 }
-
-
             </div>
         </div>
     )
