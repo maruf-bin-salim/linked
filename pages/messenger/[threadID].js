@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AuthError from '../../components/authentication-error';
 import Loading from '../../components/loading';
 import useMessages from '../../hooks/useMessages';
@@ -60,12 +60,21 @@ export default function MessengerThread() {
     const { messages, sendMessage } = useMessages();
     const [currentText, setCurrentText] = useState('');
 
+    const scrollRef = useRef(null);
+
+
+    useEffect(() => {
+        scrollRef?.current?.scrollIntoView({
+            behavior: "smooth",
+        });
+    }, [messages])
+
 
 
 
     async function handleSend() {
         let text = currentText;
-        if(!text || text === '' || text === ' ') return;
+        if (!text || text === '' || text === ' ') return;
         setCurrentText('');
         await sendMessage(text, loggedInUser.id);
     }
@@ -115,6 +124,7 @@ export default function MessengerThread() {
                             )
                         })
                     }
+                    <div ref={scrollRef}></div>
                 </div>
 
                 <div className={styles.chatInputContainer}>
