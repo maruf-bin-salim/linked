@@ -4,6 +4,8 @@ import { useState } from "react";
 import AuthError from "../components/authentication-error";
 import Loading from "../components/loading";
 import SearchResults from "../components/searchResults";
+import ThreadHistories from "../components/ThreadHistories";
+import useThread from "../hooks/useThread";
 import useUser from "../hooks/useUser"
 import styles from '../styles/messenger.module.css'
 
@@ -18,7 +20,9 @@ export default function Messenger() {
         isLoading,
         avatarUrl,
         username,
-        users } = useUser();
+        users,
+        threads
+    } = useUser();
 
 
     const [searchText, setSearchText] = useState('');
@@ -79,7 +83,7 @@ export default function Messenger() {
 
                     {
                         !isSearching() &&
-                        <div> is not Searching </div>
+                        <ThreadHistories loggedInUserID={loggedInUserID} users={users} threads={threads}></ThreadHistories>
                     }
                 </div>
             </div>

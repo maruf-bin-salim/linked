@@ -8,12 +8,14 @@ export default function useUser(passedID) {
     const session = useSession();
     const supabase = useSupabaseClient();
 
+
     let [avatarUrl, setAvatarUrl] = useState('/default-profile-picture.jpg');
     let [username, setUsername] = useState('');
     let [loggedInUserID, setLoggedInUserID] = useState(null);
     let [bio, setBio] = useState('');
     let [contactInformation, setContactInformation] = useState('');
     let [users, setUsers] = useState([]);
+    const [threads, setThreads] = useState([]);
 
     async function getProfile(userID) {
         setLoading(true)
@@ -94,6 +96,19 @@ export default function useUser(passedID) {
 
     }
 
+    async function getAllThreadsOfUser() {
+        let { data, error, status } = await supabase
+            .from('threads')
+            .select('*')
+            .or(`creatorID.eq.${session.user.id},memberID.eq.${session.user.id}`)
+        setThreads(data);
+        return data;
+    }
+
+    useEffect(()=>{
+        if(session) getAllThreadsOfUser();
+    }, [session])
+
     useEffect(() => {
         setLoading(false);
         if (!session) return;
@@ -125,7 +140,9 @@ export default function useUser(passedID) {
         setContactInformation,
 
         updateProfile,
-        users
+        users,
+        
+        threads
 
     };
 }

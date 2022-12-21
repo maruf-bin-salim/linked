@@ -43,9 +43,11 @@ export default function useThread(threadID) {
             .select('*')
             .eq('id', userID)
             .single();
-
         return data;
     }
+
+
+
 
     async function setThreadInformation() {
         setLoading(true)
@@ -63,6 +65,8 @@ export default function useThread(threadID) {
         if (!session) setIsLoggedIn(false);
         if (threadID) setThreadInformation();
     }, [threadID, session])
+
+
 
     return {
         isLoading,

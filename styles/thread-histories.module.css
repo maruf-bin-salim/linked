@@ -1,0 +1,93 @@
+.HistoryComponent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    background-color: #272727;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-all;
+    flex: 1;
+    border-radius: 20px;
+
+}
+
+.HistoryComponent p {
+    color: #dbdbdd;
+    margin: 20px;
+    margin-bottom: 10px;
+    width: calc(100%-40px);
+}
+
+.Histories {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.Histories::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Histories {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+.History {
+    background-color: #202020;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: max-content;
+    flex-direction: column;
+}
+
+.History:hover {
+    background-color: #191919;
+}
+
+.userInformation {
+    display: flex;
+    align-items: center;
+}
+
+.userInformation p {
+    margin-left: 10px;
+}
+
+.userInformation img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.userInformation img:hover {
+    scale: 1.2;
+    margin-bottom: 10px;
+}
+
+.HistoryMain {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    cursor: pointer;
+    background-color: #272727;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.HistoryMain:hover {
+    background-color: #373737;
+}

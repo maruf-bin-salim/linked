@@ -8,11 +8,11 @@ function SearchResult({ user, loggedInUserID }) {
     const router = useRouter();
 
     async function goToUserProfile() {
-        router.push(`/profile/${user.id}`)
+        router.push(`/profile/${user.id}`);
     }
 
     async function goToThread() {
-        router.push(`/messenger/${generateThread(user.id, loggedInUserID)}`)
+        router.push(`/messenger/${generateThread(user.id, loggedInUserID)}`);
     }
 
 
@@ -47,7 +47,7 @@ export default function SearchResults({
 
     return (
         <div className={styles.searchResultsComponent}>
-            <p>{`Search For "${searchText}"`}</p>
+            <p>{`Searching For "${searchText}"`}</p>
             <div className={styles.searchResults}>
                 {
                     users.filter(
