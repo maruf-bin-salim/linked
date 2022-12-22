@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { PAGE_TYPES } from '../utils/types';
 import TopBar from '../components/TopBar';
 import BottomBar from '../components/BottomBar';
+import PostWriter from '../components/PostWriter';
 
 
 
@@ -23,7 +24,9 @@ export default function Home() {
   const [currentPageType, setCurrentPageType] = useState(PAGE_TYPES.POST);
 
 
+  
   const {
+    setLoading,
     isLoading,
     avatarUrl,
     username,
@@ -67,7 +70,7 @@ export default function Home() {
 
 
         {
-          (currentPageType === PAGE_TYPES.POST) && <div> POST </div>
+          (currentPageType === PAGE_TYPES.POST) && <PostWriter setLoading={setLoading} />
         }
         {
           (currentPageType === PAGE_TYPES.TIMELINE) && <div> TIMELINE </div>

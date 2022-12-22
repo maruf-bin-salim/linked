@@ -123,6 +123,7 @@ export default function useUser(passedID) {
 
 
     return {
+        setLoading,
         isLoading,
         isUser,
         loggedInUserID,

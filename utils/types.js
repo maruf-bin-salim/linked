@@ -5,4 +5,10 @@ const PAGE_TYPES = {
     SHARE: 'SHARE',
 }
 
-export { PAGE_TYPES };
+const POST_TYPES = {
+    MARKETPLACE: 'MARKETPLACE',
+    SHARE: 'SHARE',
+
+}
+
+export { PAGE_TYPES, POST_TYPES };

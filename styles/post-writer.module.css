@@ -1,0 +1,170 @@
+.PostWriter {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.writer {
+    width: 50%;
+    height: 80%;
+    background-color: #202020;
+    overflow-y: scroll;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.writer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.writer {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.top {
+    width: 100%;
+    height: max-content;
+    padding: 10px;
+    display: flex;
+    word-break: break-all;
+    max-height: 20%;
+    background-color: #292929;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.top button {
+    word-break: keep-all;
+    background-color: #191919;
+    color: #dbdbdb;
+    width: max-content;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.title {
+    height: max-content;
+    width: max-content;
+}
+
+.writer textarea {
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    height: 30%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #292929;
+    padding: 10px;
+    resize: none;
+}
+
+.writer .shareArea {
+    height: 65%;
+}
+
+.selectedImage {
+    background-color: #191919;
+    height: 25%;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.selectedImage div {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+}
+
+.selectedImage img {
+    position: absolute;
+    height: 100%;
+}
+
+.selectedImage div [type="file"] {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+.selectedImage button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
+    background-color: #838383;
+    border-radius: 50%;
+    background-image: url('../public/cross.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+
+}
+
+.customFileInput {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
+    background-color: #838383;
+    border-radius: 50%;
+    background-image: url('../public/plus.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.postButtonHolder {
+    height: max-content;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    height: max-content;
+    width: max-content;
+    padding: 10px;
+    background-color: rgb(75, 75, 202);
+    color: #dbdbdb;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .writer {
+        width: 90%;
+        height: 95%;
+    }
+
+    .selectedImage {
+        grid-template-columns: 1fr 1fr;
+        height: 40%;
+    }
+
+}
