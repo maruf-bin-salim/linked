@@ -163,4 +163,12 @@
         max-width: 100vw;
         word-break: break-all;
     }
+    .mainBoxTop img {
+        width: 50px;
+        aspect-ratio: 1;
+    }
+
+    .mainBoxTitle {
+        font-size: medium;
+    }
 }
