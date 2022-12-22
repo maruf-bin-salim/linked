@@ -9,6 +9,8 @@ import { PAGE_TYPES } from '../utils/types';
 import TopBar from '../components/TopBar';
 import BottomBar from '../components/BottomBar';
 import PostWriter from '../components/PostWriter';
+import ShareFeed from '../components/ShareFeed';
+import Marketplace from '../components/Marketplace';
 
 
 
@@ -24,7 +26,7 @@ export default function Home() {
   const [currentPageType, setCurrentPageType] = useState(PAGE_TYPES.POST);
 
 
-  
+
   const {
     setLoading,
     isLoading,
@@ -71,17 +73,17 @@ export default function Home() {
 
 
         {
-        (currentPageType === PAGE_TYPES.POST) && <PostWriter posterID={loggedInUserID} setLoading={setLoading} />
+          (currentPageType === PAGE_TYPES.POST) && <PostWriter posterID={loggedInUserID} setLoading={setLoading} />
         }
         {
           (currentPageType === PAGE_TYPES.TIMELINE) && <div> TIMELINE </div>
         }
 
         {
-          (currentPageType === PAGE_TYPES.MARKETPLACE) && <div> MARKETPLACE </div>
+          (currentPageType === PAGE_TYPES.MARKETPLACE) &&  <Marketplace users={users} />
         }
         {
-          (currentPageType === PAGE_TYPES.SHARE) && <div> SHARE </div>
+          (currentPageType === PAGE_TYPES.SHARE) && <ShareFeed users={users} />
         }
       </div>
       <BottomBar />
