@@ -49,6 +49,23 @@ export default function Home() {
     <div className={styles.page}>
       <TopBar avatarUrl={avatarUrl} username={username} />
       <div className={styles.main}>
+
+        <div className={styles.navHolder}>
+          <button
+            className={`${styles.post} ${(currentPageType === PAGE_TYPES.POST) ? styles.active : styles.none}`}
+            onClick={() => { setCurrentPageType(PAGE_TYPES.POST) }}></button>
+          <button
+            className={`${styles.timeline} ${(currentPageType === PAGE_TYPES.TIMELINE) ? styles.active : styles.none}`}
+            onClick={() => { setCurrentPageType(PAGE_TYPES.TIMELINE) }}></button>
+          <button
+            className={`${styles.marketplace} ${(currentPageType === PAGE_TYPES.MARKETPLACE) ? styles.active : styles.none}`}
+            onClick={() => { setCurrentPageType(PAGE_TYPES.MARKETPLACE) }}></button>
+          <button
+            className={`${styles.share} ${(currentPageType === PAGE_TYPES.SHARE) ? styles.active : styles.none}`}
+            onClick={() => { setCurrentPageType(PAGE_TYPES.SHARE) }}></button>
+        </div>
+
+
         {
           (currentPageType === PAGE_TYPES.POST) && <div> POST </div>
         }
@@ -57,10 +74,10 @@ export default function Home() {
         }
 
         {
-          (currentPageType === PAGE_TYPES.MARKETPLACE) && <div> POST </div>
+          (currentPageType === PAGE_TYPES.MARKETPLACE) && <div> MARKETPLACE </div>
         }
         {
-          (currentPageType === PAGE_TYPES.SHARE) && <div> POST </div>
+          (currentPageType === PAGE_TYPES.SHARE) && <div> SHARE </div>
         }
       </div>
       <BottomBar />
