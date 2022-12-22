@@ -31,6 +31,7 @@ export default function Home() {
     avatarUrl,
     username,
     loggedInUserID,
+    users
   } = useUser();
 
   if (isLoading)
@@ -70,7 +71,7 @@ export default function Home() {
 
 
         {
-          (currentPageType === PAGE_TYPES.POST) && <PostWriter setLoading={setLoading} />
+        (currentPageType === PAGE_TYPES.POST) && <PostWriter posterID={loggedInUserID} setLoading={setLoading} />
         }
         {
           (currentPageType === PAGE_TYPES.TIMELINE) && <div> TIMELINE </div>

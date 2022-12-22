@@ -5,7 +5,7 @@ import generateRandomID from '../utils/generateRandomID';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 
-export default function PostWriter({ setLoading }) {
+export default function PostWriter({ posterID, setLoading }) {
 
     const supabase = useSupabaseClient();
 
@@ -14,6 +14,8 @@ export default function PostWriter({ setLoading }) {
     const [source1, setSource1] = useState(null);
     const [source2, setSource2] = useState(null);
     const [source3, setSource3] = useState(null);
+    const [description, setDescription] = useState('');
+
 
 
 
@@ -38,6 +40,24 @@ export default function PostWriter({ setLoading }) {
         setPostID(generateRandomID('post'));
     }, [])
 
+
+    async function makePost() {
+        setLoading(true);
+        let timestamp = Date.now();
+        const { error } = await supabase
+            .from('posts')
+            .insert({
+                postID: postID,
+                posterID: posterID,
+                description: description,
+                type: currentPostType,
+                timestamp: timestamp,
+                source_1: source1,
+                source_2: source2,
+                source_3: source3,
+            });
+        setLoading(false);
+    }
 
 
     async function updateImage(event, index) {
@@ -79,7 +99,9 @@ export default function PostWriter({ setLoading }) {
                     <button onClick={toggleCurrentPostType}>{getButtonTitle()}</button>
                 </div>
                 <p className={styles.title}>{getDescription()}</p>
-                <textarea className={`${(currentPostType === POST_TYPES.MARKETPLACE) ? styles.none : styles.shareArea}`} spellCheck="false" cols={5} rows={5}></textarea>
+                <textarea className={`${(currentPostType === POST_TYPES.MARKETPLACE) ? styles.none : styles.shareArea}`}
+                    onChange={(e) => { setDescription(e.target.value) }}
+                    spellCheck="false" cols={5} rows={5}></textarea>
 
                 {/* image holder for marketplace */}
                 {
@@ -128,7 +150,7 @@ export default function PostWriter({ setLoading }) {
                 }
                 {/* post button */}
                 <div className={styles.postButtonHolder}>
-                    <button className={styles.post}>Post</button>
+                    <button className={styles.post} onClick={makePost}>Post</button>
                 </div>
             </div>
         </div>
