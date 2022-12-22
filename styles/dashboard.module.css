@@ -24,6 +24,7 @@
     padding: 25px;
     height: max-content;
     width: 100%;
+    word-break: break-all;
 }
 
 .topBar a {
