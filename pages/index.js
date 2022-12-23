@@ -11,6 +11,7 @@ import BottomBar from '../components/BottomBar';
 import PostWriter from '../components/PostWriter';
 import ShareFeed from '../components/ShareFeed';
 import Marketplace from '../components/Marketplace';
+import Timeline from '../components/Timeline';
 
 
 
@@ -23,7 +24,7 @@ export default function Home() {
   const supabase = useSupabaseClient();
 
 
-  const [currentPageType, setCurrentPageType] = useState(PAGE_TYPES.POST);
+  const [currentPageType, setCurrentPageType] = useState(PAGE_TYPES.TIMELINE);
 
 
 
@@ -76,7 +77,7 @@ export default function Home() {
           (currentPageType === PAGE_TYPES.POST) && <PostWriter posterID={loggedInUserID} setLoading={setLoading} />
         }
         {
-          (currentPageType === PAGE_TYPES.TIMELINE) && <div> TIMELINE </div>
+          (currentPageType === PAGE_TYPES.TIMELINE) && <Timeline users={users} loggedInUserID={loggedInUserID}/>
         }
 
         {

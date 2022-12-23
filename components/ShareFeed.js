@@ -2,6 +2,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
 import { POST_TYPES } from "../utils/types";
 import styles from '../styles/share-feed.module.css'
+import SharePost from "./SharePost";
 
 export default function ShareFeed({ users }) {
     const supabase = useSupabaseClient();
@@ -26,9 +27,10 @@ export default function ShareFeed({ users }) {
         <div className={styles.feed}>
             {
                 sharePosts.map((sharePost, index)=>{
-                    return <div> okay </div>
+                    return <SharePost key={sharePost.postID} users={users} post={sharePost}> </SharePost>
                 })
             }
         </div>
     )
+    
 }
