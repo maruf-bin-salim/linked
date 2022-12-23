@@ -4,7 +4,10 @@ import { POST_TYPES } from "../utils/types";
 import styles from '../styles/marketplace.module.css'
 import MarketplacePost from "./MarketplacePost";
 
+
+
 export default function Marketplace({ users }) {
+
     
     const supabase = useSupabaseClient();
 
@@ -26,7 +29,7 @@ export default function Marketplace({ users }) {
 
     return (
         <div className={styles.feed}>
-            <h1>{"Timeline: "}</h1>
+            <h1>{"Marketplace: "}</h1>
             {
                 marketplacePosts.map((marketplacePost, index)=>{
                     return <MarketplacePost key={marketplacePost.postID} users={users} post={marketplacePost}> </MarketplacePost>

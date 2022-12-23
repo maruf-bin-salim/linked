@@ -77,11 +77,11 @@ export default function Home() {
           (currentPageType === PAGE_TYPES.POST) && <PostWriter posterID={loggedInUserID} setLoading={setLoading} />
         }
         {
-          (currentPageType === PAGE_TYPES.TIMELINE) && <Timeline users={users} loggedInUserID={loggedInUserID}/>
+          (currentPageType === PAGE_TYPES.TIMELINE) && <Timeline users={users} loggedInUserID={loggedInUserID} />
         }
 
         {
-          (currentPageType === PAGE_TYPES.MARKETPLACE) &&  <Marketplace users={users} />
+          (currentPageType === PAGE_TYPES.MARKETPLACE) && <Marketplace users={users} loggedInUserID={loggedInUserID} />
         }
         {
           (currentPageType === PAGE_TYPES.SHARE) && <ShareFeed users={users} />

@@ -25,6 +25,8 @@ export default function ShareFeed({ users }) {
 
     return (
         <div className={styles.feed}>
+            <h1>{"Share Feed: "}</h1>
+
             {
                 sharePosts.map((sharePost, index)=>{
                     return <SharePost key={sharePost.postID} users={users} post={sharePost}> </SharePost>

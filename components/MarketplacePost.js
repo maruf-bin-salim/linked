@@ -1,6 +1,8 @@
 import styles from '../styles/marketplace.module.css'
 import { LinkItUrl } from 'react-linkify-it';
 import getProfilePicture from '../utils/getProfilePicture';
+import { useRouter } from "next/router";
+
 
 function getPoster(users, posterID) {
     for (let i = 0; i < users.length; i++) {
@@ -26,6 +28,7 @@ function getTimeInString(timestamp) {
 
 
 export default function MarketplacePost({ users, post }) {
+    const router = useRouter();
     return (
         <div className={styles.post}>
 
@@ -34,7 +37,7 @@ export default function MarketplacePost({ users, post }) {
 
                 <div className={styles.userInformation}>
 
-                    <img src={getProfilePicture(null)}>
+                    <img src={getProfilePicture(null)} onClick={() => { router.push(`/profile/${post.posterID}`) }}>
                     </img>
                     {/* <img
                         onClick={() => { }}
@@ -46,7 +49,7 @@ export default function MarketplacePost({ users, post }) {
 
 
                 <div className={styles.messengerButtonContainer}>
-                    <button onClick={() => { }}></button>
+                    <button onClick={() => { router.push('/messenger') }}></button>
                 </div>
 
             </div>
