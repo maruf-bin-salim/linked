@@ -26,6 +26,7 @@ export default function Marketplace({ users }) {
 
     return (
         <div className={styles.feed}>
+            <h1>{"Timeline: "}</h1>
             {
                 marketplacePosts.map((marketplacePost, index)=>{
                     return <MarketplacePost key={marketplacePost.postID} users={users} post={marketplacePost}> </MarketplacePost>
